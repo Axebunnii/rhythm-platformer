@@ -1,0 +1,48 @@
+extends KinematicBody2D
+
+
+const SPEED = 100
+const JUMPFORCE = -400
+const GRAVITY = 30
+var movedir = Vector2(0,0)
+var rhythmKeys = [16777231, 16777232, 16777233, 16777234]
+
+func _physics_process(delta):	
+	Movement()
+	
+	
+func _process(delta):
+	pass
+	
+	
+func Movement():
+	movedir.x = int(Input.is_action_pressed("Right")) - int(Input.is_action_pressed("Left"))
+	# adds the gravity value to the y value every frame
+	movedir.y = movedir.y + GRAVITY
+	
+	# makes the player jump if the player has collision with the ground
+	if (int(Input.is_action_just_pressed("Jump")) && is_on_floor()):
+		movedir.y = JUMPFORCE
+		
+	movedir.x = movedir.x * SPEED
+	movedir = move_and_slide(movedir, Vector2.UP)
+	
+	movedir.x = lerp(movedir.x, 0, 0.2)
+
+
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		var pressedKey = event.scancode
+		if rhythmKeys.has(pressedKey):
+			PlayInstrument(pressedKey)
+			
+
+func PlayInstrument(pk):
+	if (pk == rhythmKeys[0]):
+		print("left arrow")
+	elif (pk == rhythmKeys[1]):
+		print("up arrow")
+	elif (pk == rhythmKeys[2]):
+		print("right arrow")
+	elif (pk == rhythmKeys[3]):
+		print("down arrow")
