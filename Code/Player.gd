@@ -36,7 +36,6 @@ func _input(event):
 		var pressedKey = event.scancode
 		if rhythmKeys.has(pressedKey):
 			PlayInstrument(pressedKey)
-			
 
 
 func PlayInstrument(pk):

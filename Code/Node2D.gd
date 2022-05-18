@@ -12,20 +12,27 @@ var rightIcon = preload("res://Art/next.png")
 var downIcon = preload("res://Art/quit.png")
 
 # array of the nodes
-var nodes = [cs1, cs2, cs3]
+var nodes
 
 # array of the sprites
 var sprites = [leftIcon, upIcon, rightIcon, downIcon]
 
+
 func _ready():
+	nodes  = [cs1, cs2, cs3]
 	cs1.visible = false
 	cs2.visible = false
 	cs3.visible = false
 
+	
 func ChangeSprite(n):
-	print(n)
-	cs1.set_texture(sprites[n])
-	SetVisibility(cs1, true)
+	#print(n)
+	for i in nodes:
+		if (i.visible == false):
+			#print(i)
+			i.set_texture(sprites[n])
+			SetVisibility(i, true)
+			break
 	
 	
 func SetVisibility(s, b):
