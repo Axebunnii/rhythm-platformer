@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://tilemap.png" type="Texture" id=2]
-[ext_resource path="res://Player.gd" type="Script" id=3]
+[ext_resource path="res://Art/tilemap.png" type="Texture" id=2]
+[ext_resource path="res://Code/Node2D.gd" type="Script" id=3]
+[ext_resource path="res://Code/Player.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -125,7 +126,7 @@ tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 229, 149 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
 texture = ExtResource( 1 )
@@ -137,3 +138,21 @@ shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
 shape = SubResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="Player"]
+script = ExtResource( 3 )
+
+[node name="ComboSprite1" type="Sprite" parent="Player/Node2D"]
+position = Vector2( -95, -27 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+
+[node name="ComboSprite2" type="Sprite" parent="Player/Node2D"]
+position = Vector2( -72.4, -26.4 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+
+[node name="ComboSprite3" type="Sprite" parent="Player/Node2D"]
+position = Vector2( -49.4, -26.4 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )

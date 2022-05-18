@@ -1,13 +1,14 @@
 extends KinematicBody2D
 
-
 const SPEED = 100
 const JUMPFORCE = -400
 const GRAVITY = 30
 var movedir = Vector2(0,0)
 var rhythmKeys = [16777231, 16777232, 16777233, 16777234]
 
-func _physics_process(delta):	
+onready var s = get_node("Node2D")
+
+func _physics_process(delta):
 	Movement()
 	
 	
@@ -23,7 +24,7 @@ func Movement():
 	# makes the player jump if the player has collision with the ground
 	if (int(Input.is_action_just_pressed("Jump")) && is_on_floor()):
 		movedir.y = JUMPFORCE
-		
+	
 	movedir.x = movedir.x * SPEED
 	movedir = move_and_slide(movedir, Vector2.UP)
 	
@@ -37,12 +38,13 @@ func _input(event):
 			PlayInstrument(pressedKey)
 			
 
+
 func PlayInstrument(pk):
 	if (pk == rhythmKeys[0]):
-		print("left arrow")
+		s.ChangeSprite(0)
 	elif (pk == rhythmKeys[1]):
-		print("up arrow")
+		s.ChangeSprite(1)
 	elif (pk == rhythmKeys[2]):
-		print("right arrow")
+		s.ChangeSprite(2)
 	elif (pk == rhythmKeys[3]):
-		print("down arrow")
+		s.ChangeSprite(3)
