@@ -4,6 +4,7 @@ extends Node2D
 onready var cs1 = get_node("ComboSprite1")
 onready var cs2 = get_node("ComboSprite2")
 onready var cs3 = get_node("ComboSprite3")
+onready var cs4 = get_node("ComboSprite4")
 
 # sprites of the nodes
 var leftIcon = preload("res://Art/previous.png")
@@ -19,19 +20,20 @@ var sprites = [leftIcon, upIcon, rightIcon, downIcon]
 
 
 func _ready():
-	nodes  = [cs1, cs2, cs3]
-	cs1.visible = false
-	cs2.visible = false
-	cs3.visible = false
+	nodes  = [cs1, cs2, cs3, cs4]
+	for i in nodes:
+		i.visible = false
 
 	
 func ChangeSprite(n):
-	#print(n)
 	for i in nodes:
 		if (i.visible == false):
-			#print(i)
 			i.set_texture(sprites[n])
 			SetVisibility(i, true)
+			if (i == nodes[-1]):
+				yield(get_tree().create_timer(5.0), "timeout")
+				for x in nodes:
+					SetVisibility(x, false)
 			break
 	
 	
