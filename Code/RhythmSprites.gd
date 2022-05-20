@@ -28,7 +28,9 @@ func _ready():
 
 
 func _physics_process(delta):
-	BreakRhythm()
+	if (t.GetTime() >= 3):
+		t.StopTimer()
+		BreakRhythm()
 
 
 func ChangeSprite(n):
@@ -38,7 +40,7 @@ func ChangeSprite(n):
 			i.set_texture(sprites[n])
 			SetVisibility(i, true)
 			if (i == nodes[-1]):
-				yield(get_tree().create_timer(3.0), "timeout")
+				yield(get_tree().create_timer(5.0), "timeout")
 				for x in nodes:
 					SetVisibility(x, false)
 					t.StopTimer()
@@ -50,8 +52,7 @@ func SetVisibility(s, b):
 
 
 func BreakRhythm():
-	for i in nodes:
-		if (i.visible == true && !i == nodes[-1] && t.GetTime() >= 3):
-			t.StopTimer()
-			for x in nodes:
-				SetVisibility(x, false)
+	for i in range(nodes.size()-1, -1, -1):
+		if (i == 3 && nodes[i].visible): break
+		for x in nodes:
+			SetVisibility(x, false)

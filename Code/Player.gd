@@ -6,7 +6,7 @@ const GRAVITY = 30
 var movedir = Vector2(0,0)
 var rhythmKeys = [16777231, 16777232, 16777233, 16777234]
 
-onready var s = get_node("Node2D")
+onready var s = get_node("RhythmSprites")
 
 
 func _physics_process(delta):
