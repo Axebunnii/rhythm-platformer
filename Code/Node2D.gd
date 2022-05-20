@@ -18,26 +18,40 @@ var nodes
 # array of the sprites
 var sprites = [leftIcon, upIcon, rightIcon, downIcon]
 
+var t
 
 func _ready():
-	var t = get_node("../../Timer")
-	t.StartTimer()
+	t = get_node("../../Timer")
 	nodes  = [cs1, cs2, cs3, cs4]
 	for i in nodes:
 		i.visible = false
 
 
+func _physics_process(delta):
+	BreakRhythm()
+
+
 func ChangeSprite(n):
 	for i in nodes:
 		if (i.visible == false):
+			t.StartTimer()
 			i.set_texture(sprites[n])
 			SetVisibility(i, true)
 			if (i == nodes[-1]):
 				yield(get_tree().create_timer(3.0), "timeout")
 				for x in nodes:
 					SetVisibility(x, false)
+					t.StopTimer()
 			break
 	
 	
 func SetVisibility(s, b):
 	s.visible = b
+
+
+func BreakRhythm():
+	for i in nodes:
+		if (i.visible == true && !i == nodes[-1] && t.GetTime() >= 3):
+			t.StopTimer()
+			for x in nodes:
+				SetVisibility(x, false)

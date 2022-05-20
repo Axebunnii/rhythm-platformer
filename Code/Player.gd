@@ -8,6 +8,7 @@ var rhythmKeys = [16777231, 16777232, 16777233, 16777234]
 
 onready var s = get_node("Node2D")
 
+
 func _physics_process(delta):
 	Movement(delta)
 	

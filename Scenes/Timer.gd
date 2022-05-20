@@ -15,7 +15,6 @@ func PlayTimer(delta):
 	time += delta
 	print(time)
 
-
 func StartTimer():
 	ResetTimer()
 	timerOn = true
@@ -32,3 +31,7 @@ func ResetTimer():
 
 func TimerStatus(ticking):
 	timerOn = ticking
+
+
+func GetTime():
+	return time
