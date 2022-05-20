@@ -20,18 +20,20 @@ var sprites = [leftIcon, upIcon, rightIcon, downIcon]
 
 
 func _ready():
+	var t = get_node("../../Timer")
+	t.StartTimer()
 	nodes  = [cs1, cs2, cs3, cs4]
 	for i in nodes:
 		i.visible = false
 
-	
+
 func ChangeSprite(n):
 	for i in nodes:
 		if (i.visible == false):
 			i.set_texture(sprites[n])
 			SetVisibility(i, true)
 			if (i == nodes[-1]):
-				yield(get_tree().create_timer(5.0), "timeout")
+				yield(get_tree().create_timer(3.0), "timeout")
 				for x in nodes:
 					SetVisibility(x, false)
 			break

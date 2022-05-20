@@ -9,14 +9,14 @@ var rhythmKeys = [16777231, 16777232, 16777233, 16777234]
 onready var s = get_node("Node2D")
 
 func _physics_process(delta):
-	Movement()
+	Movement(delta)
 	
 	
 func _process(delta):
 	pass
 	
 	
-func Movement():
+func Movement(delta):
 	movedir.x = int(Input.is_action_pressed("Right")) - int(Input.is_action_pressed("Left"))
 	# adds the gravity value to the y value every frame
 	movedir.y = movedir.y + GRAVITY
