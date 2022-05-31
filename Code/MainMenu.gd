@@ -9,9 +9,10 @@ func _ready() -> void:
 
 func SelectionHandler(_currentSelection) -> void:
 	if (_currentSelection == 0):
-		print("Settings")
+		get_parent().add_child(gameScene.instance())
 	elif (_currentSelection == 1):
-		print("credits")
-	elif (_currentSelection == 2):
-		get_parent().add_child(mainScene.instance())
+		get_parent().add_child(optionsScene.instance())
 		queue_free()
+	elif (_currentSelection == 2):
+		# quit the game
+		get_tree().quit()
