@@ -13,7 +13,7 @@ func _physics_process(delta):
 
 func PlayTimer(delta):
 	time += delta
-	print(time)
+	
 
 func StartTimer():
 	ResetTimer()
