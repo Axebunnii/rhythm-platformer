@@ -1,16 +1,18 @@
-extends Node
+extends ReactingObject
+
+class_name Stone
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var reactingStones = [[7, 3], [8, 3]]
 
+func CheckDistance() -> void:
+	pPos = p.GetPosition()
+	
+	Activate()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func GetTile() -> void:
+	print("g")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func Activate() -> void:
+	print(tm)
+	tm.SetTile(7, 3, 0)

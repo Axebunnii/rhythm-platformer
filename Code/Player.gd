@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+
+var pos = self.get_position()
 const SPEED = 100
 const JUMPFORCE = -400
 const GRAVITY = 30
@@ -10,11 +12,9 @@ onready var s = get_node("RhythmSprites")
 
 
 func _physics_process(delta):
+	
+	pos = self.get_position()
 	Movement(delta)
-	
-	
-func _process(delta):
-	pass
 	
 	
 func Movement(delta):
@@ -41,10 +41,14 @@ func _input(event):
 
 func PlayInstrument(pk):
 	if (pk == rhythmKeys[0]):
-		s.ChangeSprite(0)
+		s.ChangeSprite(0, pk)
 	elif (pk == rhythmKeys[1]):
-		s.ChangeSprite(1)
+		s.ChangeSprite(1, pk)
 	elif (pk == rhythmKeys[2]):
-		s.ChangeSprite(2)
+		s.ChangeSprite(2, pk)
 	elif (pk == rhythmKeys[3]):
-		s.ChangeSprite(3)
+		s.ChangeSprite(3, pk)
+		
+		
+func GetPosition():
+	return pos

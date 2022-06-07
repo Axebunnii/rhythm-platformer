@@ -10,6 +10,7 @@ func _ready() -> void:
 func SelectionHandler(_currentSelection) -> void:
 	if (_currentSelection == 0):
 		get_parent().add_child(gameScene.instance())
+		queue_free()
 	elif (_currentSelection == 1):
 		get_parent().add_child(optionsScene.instance())
 		queue_free()

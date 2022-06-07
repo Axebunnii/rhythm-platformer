@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Menu",
 "language": "GDScript",
 "path": "res://Code/Menu.gd"
+}, {
+"base": "Node",
+"class": "ReactingObject",
+"language": "GDScript",
+"path": "res://Code/ReactingObject.gd"
+}, {
+"base": "ReactingObject",
+"class": "Stone",
+"language": "GDScript",
+"path": "res://Code/Stone.gd"
 } ]
 _global_script_class_icons={
-"Menu": ""
+"Menu": "",
+"ReactingObject": "",
+"Stone": ""
 }
 
 [application]
