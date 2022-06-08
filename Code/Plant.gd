@@ -1,16 +1,15 @@
 extends ReactingObject
 
-class_name Stone
+class_name Plant
 
 
-var reactingStones = [[7, 3], [8, 3]]
-
+var reactingPlants = []
 
 func CheckDistance() -> void:
 	pPos = p.GetPosition()
 	# convert player position to a list
 	
-	for i in reactingStones:
+	for i in reactingPlants:
 		px = int(round(pPos.x / 64))
 		py = int(round(pPos.y / 64))
 		pPosList = [px, py]

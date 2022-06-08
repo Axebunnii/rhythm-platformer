@@ -17,20 +17,11 @@ var currentSelection = 0
 
 func _ready():
 	print("x")
-#	selectors = [selectorOne, selectorTwo, selectorThree]
-#	currentScene = get_tree().get_current_scene().get_name()
-#	print(currentScene)
-#	match currentScene:
-#		"MainMenu":
-#			optionsScene = load("res://Scenes/OptionsMenu.tscn")
-#		"OptionsMenu":
-#			mainScene = load("res://Scenes/MainMenu.tscn")
-#	SetSelector(0)
 
 
 func _process(delta):
 	InputHandler()
-
+	
 
 func InputHandler():
 	if (Input.is_action_just_pressed("ui_up")):
@@ -67,23 +58,3 @@ func SetSelector(_currentSelection):
 
 func SelectionHandler(_currentSelection):
 	print("y")
-#	if (currentScene == "MainMenu"):
-#		if (_currentSelection == 0):
-#			# get the root node and add the new scene as a child
-#			get_parent().add_child(gameScene.instance())
-#			# delete this scene
-#			queue_free()
-#		elif (_currentSelection == 1):
-#			get_parent().add_child(optionsScene.instance())
-#			queue_free()
-#		elif (_currentSelection == 2):
-#			# quit the game
-#			get_tree().quit()
-#	elif (currentScene == "OptionsMenu"):
-#		if (_currentSelection == 0):
-#			print("Settings")
-#		elif (_currentSelection == 1):
-#			print("credits")
-#		elif (_currentSelection == 2):
-#			get_parent().add_child(mainScene.instance())
-#			queue_free()

@@ -23,6 +23,7 @@ var combo
 var t
 onready var reactS = get_node("../../StoneHandler")
 
+
 func _ready():
 	t = get_node("../../Timer")
 	nodes  = [cs1, cs2, cs3, cs4]
@@ -63,7 +64,8 @@ func BreakRhythm():
 		for x in nodes:
 			pressed.clear()
 			SetVisibility(x, false)
-			
+
+
 func CheckPlayedCombo(p):
 	# left, up, right, down
 	if (p == [16777231, 16777232, 16777233, 16777234]):
