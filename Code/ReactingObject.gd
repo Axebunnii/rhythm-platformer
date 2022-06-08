@@ -17,9 +17,5 @@ func CheckDistance():
 	pass
 
 
-func GetTile():
-	pass
-
-
 func Activate(cell, t):
 	pass

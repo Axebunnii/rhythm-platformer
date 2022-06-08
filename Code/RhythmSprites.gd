@@ -22,6 +22,7 @@ var pressed = []
 var combo
 var t
 onready var reactS = get_node("../../StoneHandler")
+onready var reactP = get_node("../../PlantHandler")
 
 
 func _ready():
@@ -70,5 +71,8 @@ func CheckPlayedCombo(p):
 	# left, up, right, down
 	if (p == [16777231, 16777232, 16777233, 16777234]):
 		reactS.CheckDistance()
+	# up, down, left, right
+	elif (p == [16777232, 16777234, 16777231, 16777233]):
+		reactP.CheckDistance()
 		
 

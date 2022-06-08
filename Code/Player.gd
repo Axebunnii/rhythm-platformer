@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 var pos = self.get_position()
 const SPEED = 100
-const JUMPFORCE = -400
+const JUMPFORCE = -500
 const GRAVITY = 30
 var movedir = Vector2(0,0)
 var rhythmKeys = [16777231, 16777232, 16777233, 16777234]

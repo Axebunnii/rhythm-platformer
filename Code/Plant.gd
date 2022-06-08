@@ -3,7 +3,8 @@ extends ReactingObject
 class_name Plant
 
 
-var reactingPlants = []
+var reactingPlants = [[3, 1], [4, -1], [5, 1]]
+
 
 func CheckDistance() -> void:
 	pPos = p.GetPosition()
@@ -13,15 +14,13 @@ func CheckDistance() -> void:
 		px = int(round(pPos.x / 64))
 		py = int(round(pPos.y / 64))
 		pPosList = [px, py]
-		print(pPosList)
 		
-		if (pPosList[0] < i[0] - 2): break
-		if (pPosList[0] > i[0] + 2): break
-		Activate(i, 0)
-
-
-func GetTile() -> void:
-	print("g")
+		print(pPosList)
+		if (pPosList[0] < i[0] - 2): continue
+		if (pPosList[0] > i[0] + 2): continue
+		if (pPosList[1] < i[1] - 2): continue
+		if (pPosList[1] > i[1] + 2): continue
+		Activate(i, 1)
 
 
 func Activate(cell, t) -> void:
