@@ -6,7 +6,7 @@
 [ext_resource path="res://Code/Player.gd" type="Script" id=4]
 [ext_resource path="res://Code/Timer.gd" type="Script" id=5]
 [ext_resource path="res://Code/Stone.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/TileMap.gd" type="Script" id=7]
+[ext_resource path="res://Code/TileMap.gd" type="Script" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -229,16 +229,15 @@ extents = Vector2( 32, 32 )
 extents = Vector2( 32, 32 )
 
 [node name="Game" type="Node2D"]
-position = Vector2( 149, 183 )
+position = Vector2( 128, 57 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
 format = 1
-tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0 )
+tile_data = PoolIntArray( 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0 )
 script = ExtResource( 7 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 212, 13 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
