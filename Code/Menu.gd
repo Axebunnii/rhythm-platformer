@@ -39,7 +39,6 @@ func InputHandler():
 			currentSelection = 2
 		SetSelector(currentSelection)
 	elif (Input.is_action_just_pressed("ui_accept")):
-		currentScene = get_tree().get_current_scene().get_name()
 		SelectionHandler(currentSelection)
 
 
