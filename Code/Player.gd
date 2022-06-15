@@ -8,13 +8,30 @@ const GRAVITY = 30
 var movedir = Vector2(0,0)
 var rhythmKeys = [16777231, 16777232, 16777233, 16777234]
 
+var mainScene = load("res://Scenes/MainMenu.tscn")
+
+var lastposonfloor
+var lives = 3
+onready var heart1
+onready var heart2
+onready var heart3
+var hearts
+
 onready var s = get_node("RhythmSprites")
+
+
+func _ready():
+	heart1 = get_node("../UI/Heart1")
+	heart2 = get_node("../UI/Heart2")
+	heart3 = get_node("../UI/Heart3")
+	hearts = [heart1, heart2, heart3]
 
 
 func _physics_process(delta):
 	
 	pos = self.get_position()
 	Movement(delta)
+	CheckPosition()
 	
 	
 func Movement(delta):
@@ -52,3 +69,26 @@ func PlayInstrument(pk):
 		
 func GetPosition():
 	return pos
+	
+	
+func CheckPosition():
+	if (is_on_floor()):
+		lastposonfloor = pos
+	
+	if (pos.y > 1100):
+		position  = lastposonfloor
+		LoseLife()
+
+
+func LoseLife():
+	lives -= 1
+	for i in range(hearts.size()-1, -1, -1):
+		print(hearts[i])
+		if (hearts[i].visible == false): continue
+		hearts[i].visible = false
+		break
+	
+	if (lives == 0):
+		get_parent().add_child(mainScene.instance())
+		queue_free()
+

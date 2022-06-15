@@ -33,7 +33,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if (t.GetTime() >= 3):
+	if (t.GetTime() >= 1.5):
 		t.StopTimer()
 		BreakRhythm()
 
@@ -46,7 +46,7 @@ func ChangeSprite(n, pk):
 			i.set_texture(sprites[n])
 			SetVisibility(i, true)
 			if (i == nodes[-1]):
-				yield(get_tree().create_timer(5.0), "timeout")
+				yield(get_tree().create_timer(3.0), "timeout")
 				CheckPlayedCombo(pressed)
 				pressed.clear()
 				for x in nodes:

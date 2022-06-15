@@ -3,7 +3,7 @@ extends ReactingObject
 class_name Stone
 
 
-var reactingStones = [[7, 3], [8, 3], [8, 2]]
+var reactingStones = [[8, 8], [9, 8], [10, 8]]
 
 
 func CheckDistance() -> void:
@@ -19,7 +19,7 @@ func CheckDistance() -> void:
 		if (pPosList[0] > i[0] + 2): continue
 		if (pPosList[1] < i[1] - 2): continue
 		if (pPosList[1] > i[1] + 2): continue
-		Activate(i, 0)
+		Activate(i, 3)
 		CheckForNeighbour(i)
 
 
@@ -28,11 +28,11 @@ func CheckForNeighbour(cell) -> void:
 		if (!visible.has(i)):
 			if (cell[0] - 1 == i[0] || cell[0] + 1 == i[0]):
 				if (cell[1] == i[1]):
-					Activate(i, 0)
+					Activate(i, 3)
 					CheckForNeighbour(i)
 			elif (cell[1] - 1 == i[1] || cell[1] + 1 == i[1]):
 				if (cell[0] == i[0]):
-					Activate(i, 0)
+					Activate(i, 3)
 					CheckForNeighbour(i)
 
 

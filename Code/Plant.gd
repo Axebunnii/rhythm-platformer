@@ -3,7 +3,7 @@ extends ReactingObject
 class_name Plant
 
 
-var reactingPlants = [[3, 1], [4, -1], [5, 1]]
+var reactingPlants = [[13, 6]]
 
 
 func CheckDistance() -> void:
@@ -20,7 +20,7 @@ func CheckDistance() -> void:
 		if (pPosList[1] < i[1] - 2): continue
 		if (pPosList[1] > i[1] + 2): continue
 		CheckForNeighbour(i)
-		Activate(i, 1)
+		Activate(i, 5)
 
 
 func CheckForNeighbour(cell) -> void:
@@ -32,7 +32,7 @@ func CheckForNeighbour(cell) -> void:
 					CheckForNeighbour(i)
 			elif (cell[1] - 1 == i[1] || cell[1] + 1 == i[1]):
 				if (cell[0] == i[0]):
-					Activate(i, 0)
+					Activate(i, 5)
 					CheckForNeighbour(i)
 
 
