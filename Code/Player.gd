@@ -91,4 +91,3 @@ func LoseLife():
 	if (lives == 0):
 		get_parent().add_child(mainScene.instance())
 		queue_free()
-

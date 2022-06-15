@@ -4,7 +4,6 @@ extends Menu
 func _ready() -> void:
 	selectors = [selectorOne, selectorTwo, selectorThree]
 	currentScene = "OptionsMenu"
-	print(currentScene)
 	mainScene = load("res://Scenes/MainMenu.tscn")
 	SetSelector(0)
 

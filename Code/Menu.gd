@@ -15,10 +15,6 @@ var currentScene
 var currentSelection = 0
 
 
-func _ready():
-	print("x")
-
-
 func _process(delta):
 	InputHandler()
 	
@@ -43,7 +39,6 @@ func InputHandler():
 
 
 func SetSelector(_currentSelection):
-	print(_currentSelection)
 	for i in selectors:
 		i.text = ""
 	
@@ -56,4 +51,4 @@ func SetSelector(_currentSelection):
 
 
 func SelectionHandler(_currentSelection):
-	print("y")
+	pass
