@@ -83,7 +83,6 @@ func CheckPosition():
 func LoseLife():
 	lives -= 1
 	for i in range(hearts.size()-1, -1, -1):
-		print(hearts[i])
 		if (hearts[i].visible == false): continue
 		hearts[i].visible = false
 		break
