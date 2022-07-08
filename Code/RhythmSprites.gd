@@ -24,6 +24,8 @@ var t
 onready var reactS = get_node("../../StoneHandler")
 onready var reactP = get_node("../../PlantHandler")
 
+onready var l = get_node("../Canvas/UI/Interface/MusicSheet/MusicSheetLine")
+
 
 func _ready():
 	t = get_node("../../Timer")
@@ -74,5 +76,3 @@ func CheckPlayedCombo(p):
 	# up, down, left, right
 	elif (p == [16777232, 16777234, 16777231, 16777233]):
 		reactP.CheckDistance()
-		
-

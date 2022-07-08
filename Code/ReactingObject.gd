@@ -23,4 +23,5 @@ func CheckForNeighbour(cell):
 
 
 func Activate(cell, t):
-	pass
+	visible.append(cell)
+	tm.SetTile(cell[0], cell[1], t)

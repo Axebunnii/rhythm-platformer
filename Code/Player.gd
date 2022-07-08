@@ -8,27 +8,29 @@ const GRAVITY = 30
 var movedir = Vector2(0,0)
 var rhythmKeys = [16777231, 16777232, 16777233, 16777234]
 
+var overlapping = false
+
 var mainScene = load("res://Scenes/MainMenu.tscn")
 
 var lastposonfloor
 var lives = 3
-onready var heart1
-onready var heart2
-onready var heart3
+var heart1
+var heart2
+var heart3
 var hearts
 
 onready var s = get_node("RhythmSprites")
+onready var l = get_node("../Canvas/UI/Interface/MusicSheet/MusicSheetLine")
 
 
 func _ready():
-	heart1 = get_node("../UI/Heart1")
-	heart2 = get_node("../UI/Heart2")
-	heart3 = get_node("../UI/Heart3")
+	heart1 = get_node("../Canvas/UI/Interface/NinePatchRect/Heart1")
+	heart2 = get_node("../Canvas/UI/Interface/NinePatchRect/Heart2")
+	heart3 = get_node("../Canvas/UI/Interface/NinePatchRect/Heart3")
 	hearts = [heart1, heart2, heart3]
 
 
 func _physics_process(delta):
-	
 	pos = self.get_position()
 	Movement(delta)
 	CheckPosition()
@@ -57,14 +59,22 @@ func _input(event):
 
 
 func PlayInstrument(pk):
-	if (pk == rhythmKeys[0]):
-		s.ChangeSprite(0, pk)
-	elif (pk == rhythmKeys[1]):
-		s.ChangeSprite(1, pk)
-	elif (pk == rhythmKeys[2]):
-		s.ChangeSprite(2, pk)
-	elif (pk == rhythmKeys[3]):
-		s.ChangeSprite(3, pk)
+	overlapping = l.CheckOverlapping()
+	if (overlapping):
+		if (pk == rhythmKeys[0]):
+			s.ChangeSprite(0, pk)
+			l.StartRhythm(true)
+		elif (pk == rhythmKeys[1]):
+			s.ChangeSprite(1, pk)
+#			l.StartRhythm(true)
+		elif (pk == rhythmKeys[2]):
+			s.ChangeSprite(2, pk)
+#			l.StartRhythm(true)
+		elif (pk == rhythmKeys[3]):
+			s.ChangeSprite(3, pk)
+#			l.StartRhythm(true)
+	else:
+		s.BreakRhythm()
 		
 		
 func GetPosition():

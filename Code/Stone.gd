@@ -3,7 +3,7 @@ extends ReactingObject
 class_name Stone
 
 
-var reactingStones = [[8, 8], [9, 8], [10, 8]]
+var reactingStones = [[8, 8], [9, 8], [10, 8], [28, 14]]
 
 
 func CheckDistance() -> void:
@@ -35,7 +35,3 @@ func CheckForNeighbour(cell) -> void:
 					Activate(i, 3)
 					CheckForNeighbour(i)
 
-
-func Activate(cell, t) -> void:
-	visible.append(cell)
-	tm.SetTile(cell[0], cell[1], t)
